@@ -27,7 +27,7 @@
                     <td> <?= $no++ ;?></td>
                     <td> <?= $barang['nama']; ?></td>
                     <td> <?= $barang['jumlah']; ?></td>
-                    <td>Rp<?= number_format($barang['harga'],2,',','.'); ?></td>
+                    <td>Rp<?= number_format($barang['harga'],0,',','.'); ?></td>
                     <td> <?= date('d/m/Y | H:i:s', strtotime($barang['tanggal'])); ?></td>
                     <td width="15%" class="text-center">
                         <a href="" class="btn btn-warning">Ubah</a>
