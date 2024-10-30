@@ -75,7 +75,7 @@ $data_barang = select("SELECT * FROM barang")
                     <td> <?= $barang['nama']; ?></td>
                     <td> <?= $barang['jumlah']; ?></td>
                     <td> <?= $barang['harga']; ?></td>
-                    <td> <?= $barang['tanggal']; ?></td>
+                    <td> <?= date('d/m/Y | H:i:s', strtotime($barang['tanggal'])); ?></td>
                     <td width="15%" class="text-center">
                         <a href="" class="btn btn-primary">Ubah</a>
                         <a href="" class="btn btn-danger">Hapus</a>
