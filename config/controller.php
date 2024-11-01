@@ -31,4 +31,22 @@ function create_barang ($post) {
     return mysqli_affected_rows($db);
 }
 
+// fungsi mengubah data barang
+function update_barang($post) {
+    global $db;
+
+    $id_barang = $post['id_barang'];
+    $nama = $post['nama'];
+    $jumlah = $post['jumlah'];
+    $harga = $post['harga'];
+
+    $query = "UPDATE barang SET nama = '$nama', jumlah = '$jumlah', harga = '$harga' WHERE id_barang = $id_barang";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+
+
+}
+
 ?>
