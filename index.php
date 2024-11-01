@@ -1,7 +1,7 @@
 <?php 
     include './layout/header.php';
     
-    $data_barang = select("SELECT * FROM barang");
+    $data_barang = select("SELECT * FROM barang ORDER BY id_barang DESC");
 ?>
     <div class="container mt-5">
         <h1>Data Barang</h1>
@@ -31,7 +31,7 @@
                     <td> <?= date('d/m/Y | H:i:s', strtotime($barang['tanggal'])); ?></td>
                     <td width="15%" class="text-center">
                         <a href="ubah-barang.php?id_barang=<?= $barang['id_barang'];?>" class="btn btn-warning">Ubah</a>
-                        <a href="" class="btn btn-danger">Hapus</a>
+                        <a href="hapus-barang.php?id_barang= <?= $barang['id_barang'];?>" class="btn btn-danger" onclick="return confirm('Yakin data barang akan dihapus?');">Hapus</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

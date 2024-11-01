@@ -45,8 +45,18 @@ function update_barang($post) {
     mysqli_query($db, $query);
 
     return mysqli_affected_rows($db);
+}
 
+// fungsi menghapus barang
+function delete_barang($id_barang) {
+    global $db;
 
+    // query hapus data barang
+    $query = "DELETE FROM barang WHERE id_barang = $id_barang";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
 }
 
 ?>
