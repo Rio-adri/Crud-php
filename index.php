@@ -9,7 +9,7 @@
 
         <a href="tambah-barang.php" class="btn btn-primary mb-1">Tambah</a>
 
-        <table class="table table-bordered table-striped mt-3">
+        <table class="table table-bordered table-striped mt-3" id="table">
             <thead>
                 <tr>
                     <th class="text-center">No</th>
