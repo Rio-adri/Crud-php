@@ -28,7 +28,7 @@ include './config/app.php';
                     <a class="nav-link" href="index.php">Barang</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Mahasiswa</a>
+                    <a class="nav-link" href="mahasiswa.php">Mahasiswa</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="#">Modal</a>
