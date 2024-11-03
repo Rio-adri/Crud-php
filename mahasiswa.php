@@ -1,8 +1,10 @@
 <!-- header -->
 <?php
+$title = "Daftar Mahasiswa";
+
 include './layout/header.php';
 
-$title = "Daftar Mahasiswa";
+
 
 // menampilkan data mahasiswa
 $data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC")
@@ -37,7 +39,7 @@ $data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC")
                     <td class="text-center"> <?= $mahasiswa['jk']; ?></td>
                     <td class="text-center"> <?= $mahasiswa['telepon']; ?></td>
                     <td width="15%" class="text-center">
-                        <a href="" class="btn btn-secondary btn-sm">Detail</a>
+                        <a href="detail-mahasiswa.php?id_mahasiswa=<?= $mahasiswa['id_mahasiswa'];?>" class="btn btn-secondary btn-sm">Detail</a>
                         <a href="" class="btn btn-warning btn-sm">Ubah</a>
                         <a href="" class="btn btn-danger btn-sm">Hapus</a>
                     </td>
@@ -46,9 +48,6 @@ $data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC")
             </tbody>
         </table>
     </div>
-
-
-
 
 <!-- footer -->
 <?php 

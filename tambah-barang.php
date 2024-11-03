@@ -1,5 +1,5 @@
 <?php
-
+$title = "Tambah Barang";
 include './layout/header.php';
 
 // cek apakah tombol tambah ditekan

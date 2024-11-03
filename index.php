@@ -1,4 +1,5 @@
 <?php 
+    $title = "Daftar Barang";
     include './layout/header.php';
     
     $data_barang = select("SELECT * FROM barang ORDER BY id_barang DESC");
