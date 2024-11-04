@@ -47,14 +47,12 @@ $mahasiswa = select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa"
 
             <tr>
                 <td width="50%">Foto</td>
-                <td><a href="./assets/img/foto.png"> <img src="./assets/img/foto.png" alt=""></a></td>
+                <td><a href="./assets/img/<?= $mahasiswa['foto'];?>"> <img src="./assets/img/<?= $mahasiswa['foto'];?>" alt=""></a></td>
             </tr>
 
         </table>
         <a href="mahasiswa.php" class="btn btn-secondari btn-sm" style="float: right;">Kembali</a>
     </div>
-
-
 
 
 <!-- footer -->

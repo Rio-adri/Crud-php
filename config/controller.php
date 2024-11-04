@@ -59,4 +59,23 @@ function delete_barang($id_barang) {
     return mysqli_affected_rows($db);
 }
 
+
+// fungsi menambahkan data mahasiswa 
+function create_mahasiswa ($post) {
+    global $db;
+
+    $nama = $post['nama'];
+    $prodi = $post['prodi'];
+    $jenis_kelamin = $post['jk'];
+    $telepon = $post['telepon'];
+    $email = $post['email'];
+    $foto = $post['foto'];
+
+    // query tambat data
+    $query = "INSERT INTO mahasiswa VALUES(null, '$nama', '$prodi','$jenis_kelamin', '$telepon', '$email', '$foto')";
+    
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
 ?>

@@ -6,7 +6,7 @@ include './layout/header.php';
 if (isset($_POST['tambah'])) {
     if (create_mahasiswa($_POST) > 0) {
         echo "<script> 
-                alert('Data Mahasiswa berhaisl ditambahkan');
+                alert('Data Mahasiswa berhasil ditambahkan');
                 document.location.href = 'mahasiswa.php';
              </script>";
     } else {
@@ -38,18 +38,23 @@ if (isset($_POST['tambah'])) {
                         <option value="Manajemen Informatika">Manajemen Informatika</option>
                     </select>
                 </div>
+                <div class="mb-3 col-6">
+                    <label for="jk" class="form-label">Jenis Kelamin</label>
+                    <select name="jk" id="jk" class="form-control" required>
+                        <option value="">--Pilih Jenis Kelamin--</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="jk" class="form-label">Jenis Kelamin</label>
-                <input type="text" class="form-control" id="jk" name="jk" placeholder="Jenis Kelamin..." required>
-            </div>
+            
             <div class="mb-3">
                 <label for="telepon" class="form-label">Telepon Mahasiswa</label>
-                <input type="text" class="form-control" id="telepon" name="telepon" placeholder="Telepon Mahasiswa..." required>
+                <input type="number" class="form-control" id="telepon" name="telepon" placeholder="Telepon..." required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email Mahasiswa</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email Mahasiswa..." required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email..." required>
             </div>
             <div class="mb-3">
                 <label for="foto" class="form-label">Foto Mahasiswa</label>
