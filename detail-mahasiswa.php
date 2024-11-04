@@ -51,7 +51,7 @@ $mahasiswa = select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa"
             </tr>
 
         </table>
-        <a href="mahasiswa.php" class="btn btn-secondari btn-sm" style="float: right;">Kembali</a>
+        <a href="mahasiswa.php" class="btn btn-secondary btn-sm" style="float: right;">Kembali</a>
     </div>
 
 

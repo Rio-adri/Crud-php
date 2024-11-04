@@ -69,7 +69,12 @@ function create_mahasiswa ($post) {
     $jenis_kelamin = $post['jk'];
     $telepon = $post['telepon'];
     $email = $post['email'];
-    $foto = $post['foto'];
+    $foto = upload_file();
+
+    // check upload file
+    if(!$foto) {
+        return false;
+    }
 
     // query tambat data
     $query = "INSERT INTO mahasiswa VALUES(null, '$nama', '$prodi','$jenis_kelamin', '$telepon', '$email', '$foto')";
@@ -78,4 +83,52 @@ function create_mahasiswa ($post) {
 
     return mysqli_affected_rows($db);
 }
+
+// fungsi untuk mengupload file
+function upload_file() {
+    $namaFile = $_FILES['foto']['name'];
+    $ukuranFile = $_FILES['foto']['size'];
+    $error = $_FILES['foto']['error'];
+    $tmpName = $_FILES['foto']['tmp_name'];
+
+    // check file yang diupload
+    $extensifileValid = ['jpg','jpeg','png'];
+
+    $extensiFile = explode('.',$namaFile);
+    $extensiFile = strtolower(end($extensiFile));
+
+    // check format ekstensi file
+    if(!in_array($extensiFile,$extensifileValid)) {
+        // pesan gagal
+        echo "<script> 
+                alert('Ekstensi file tidak valid');
+                document.location.href = 'tambah-mahasiswa.php'
+            </script>";
+        die();
+    }
+
+    // check ukuran file 2mb
+    if($ukuranFile> 2048000) {
+        // pesan gagal
+        echo "<script> 
+                alert('Ukuran file terlalu besar');
+                document.location.href = 'tambah-mahasiswa.php'
+            </script>";
+        die();
+    }
+    
+    // generate nama file baru
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= '.';
+    $namaFileBaru .= $extensiFile;
+
+    // pindahkan ke folder lokal
+    move_uploaded_file($tmpName,'assets/img/'. $namaFileBaru);
+
+    return $namaFileBaru;
+
+
+}
+
+
 ?>
