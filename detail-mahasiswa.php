@@ -19,7 +19,7 @@ $mahasiswa = select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa"
         <h1>Detail <?= $mahasiswa['nama'];?></h1>
         <hr>
 
-        <table class="table table-bordered table-striped mt-3" id="table">
+        <table class="table table-bordered table-striped mt-3">
             <tr>
                 <td>Nama</td>
                 <td> : <?= $mahasiswa['nama']?></td>
