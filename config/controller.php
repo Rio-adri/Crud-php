@@ -129,5 +129,16 @@ function upload_file() {
 
 }
 
+// fungsi menghapus data mahasiswa
+function delete_mahasiswa($id_mahasiswa) {
+    global $db;
+
+    // query hapus data mahasiswa
+    $query = "DELETE FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
 
 ?>
