@@ -19,9 +19,9 @@ function select ($query) {
 function create_barang ($post) {
     global $db;
 
-    $nama = $post['nama'];
-    $jumlah = $post['jumlah'];
-    $harga = $post['harga'];
+    $nama   = strip_tags($post['nama']);
+    $jumlah = strip_tags($post['jumlah']);
+    $harga  = strip_tags($post['harga']);
 
     // query tambat data
     $query = "INSERT INTO barang VALUES(null, '$nama', '$jumlah','$harga', CURRENT_TIMESTAMP())";
@@ -35,10 +35,10 @@ function create_barang ($post) {
 function update_barang($post) {
     global $db;
 
-    $id_barang = $post['id_barang'];
-    $nama = $post['nama'];
-    $jumlah = $post['jumlah'];
-    $harga = $post['harga'];
+    $id_barang  = $post['id_barang'];
+    $nama       = strip_tags($post['nama']);
+    $jumlah     = strip_tags($post['jumlah']);
+    $harga      = strip_tags($post['harga']);
 
     $query = "UPDATE barang SET nama = '$nama', jumlah = '$jumlah', harga = '$harga' WHERE id_barang = $id_barang";
 
@@ -64,13 +64,12 @@ function delete_barang($id_barang) {
 function create_mahasiswa ($post) {
     global $db;
 
-    $nama = $post['nama'];
-    $prodi = $post['prodi'];
-    $jenis_kelamin = $post['jk'];
-    $telepon = $post['telepon'];
-    $email = $post['email'];
-    $foto = upload_file();
-
+    $nama           = strip_tags($post['nama']);
+    $prodi          = strip_tags($post['prodi']);
+    $jenis_kelamin  = strip_tags($post['jk']);
+    $telepon        = strip_tags($post['telepon']);
+    $email          = strip_tags($post['email']);
+    $foto           = upload_file();
     // check upload file
     if(!$foto) {
         return false;
