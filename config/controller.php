@@ -133,6 +133,10 @@ function upload_file() {
 function delete_mahasiswa($id_mahasiswa) {
     global $db;
 
+    // unlink foto
+    $foto = select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa")[0];
+    unlink("assets/img/".$foto['foto']);
+
     // query hapus data mahasiswa
     $query = "DELETE FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa";
 

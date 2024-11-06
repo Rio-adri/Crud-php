@@ -6,12 +6,12 @@ include './layout/header.php';
 if (isset($_POST['tambah'])) {
     if (update_mahasiswa($_POST) > 0) {
         echo "<script> 
-                alert('Data Mahasiswa berhasil ditambahkan');
+                alert('Data Mahasiswa berhasil diubah');
                 document.location.href = 'mahasiswa.php';
              </script>";
     } else {
         echo "<script> 
-                alert('Data Mahasiswa gagal ditambahkan');
+                alert('Data Mahasiswa gagal diubah');
                 document.location.href = 'mahasiswa.php';
             </script>";
     }
@@ -33,7 +33,7 @@ $mahasiswa =  select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa
 
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama Mahasiswa</label>
-                <input type="text" class="form-control" id="nama" name="nama" value="<?= $mahasiswa['nama']?>" placeholder="Nama Mahasiswa..." >
+                <input type="text" class="form-control" id="nama" name="nama" value="<?= $mahasiswa['nama']?>" placeholder="Nama Mahasiswa..." required >
             </div>
             <div class="row">
                 <div class="mb-3 col-6">
@@ -58,26 +58,36 @@ $mahasiswa =  select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa
             
             <div class="mb-3">
                 <label for="telepon" class="form-label">Telepon Mahasiswa</label>
-                <input type="number" class="form-control" id="telepon" name="telepon" value="<?= $mahasiswa['telepon']?>" placeholder="Telepon..." >
+                <input type="number" class="form-control" id="telepon" name="telepon" value="<?= $mahasiswa['telepon']?>" placeholder="Telepon..." required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email Mahasiswa</label>
-                <input type="email" class="form-control" id="email" name="email" value="<?= $mahasiswa['email']?>" placeholder="Email..." >
+                <input type="email" class="form-control" id="email" name="email" value="<?= $mahasiswa['email']?>" placeholder="Email..." required>
             </div>
             <div class="mb-3">
                 <label for="foto" class="form-label">Foto Mahasiswa</label>
-                <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto Mahasiswa..." >
-                <p>
-                    <small>Gambar sebelumnya: </small>
-                    <br>
-                    <img src="./assets/img/<?php echo $mahasiswa['foto'] ?>" width="40%" alt="">
-                </p>
+                <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto Mahasiswa..." onchange= "previewImg()" >
+
+                <img src="./assets/img/ <?php $mahasiswa['foto'];?>" alt="" class="img-thumbnail img-preview mt-2" width="100px">
             </div>
             
             <button type="submit " name="tambah" class="btn btn-primary " style="float : right;">Ubah</button>
          </form>
         
     </div>
+
+<script>
+    function previewImg() {
+        const foto = document.querySelector("#foto");
+        const imgPreview = document.querySelector('.img-preview');
+
+        const fileFoto = new FileReader();
+        fileFoto.readAsDataURL(foto.files[0]);
+        fileFoto.onload = function (e) {
+            imgPreview.src = e.target.result;
+        }
+    }
+</script>
 
 <?php include './layout/footer.php' ?>
     
