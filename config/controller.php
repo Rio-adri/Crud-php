@@ -141,4 +141,31 @@ function delete_mahasiswa($id_mahasiswa) {
     return mysqli_affected_rows($db);
 }
 
+// fungsi mengubah data mahasiswa
+function update_mahasiswa($post) {
+    global $db;
+
+    $id_mahasiswa   = strip_tags($post['id_mahasiswa']);
+    $nama           = strip_tags($post['nama']);
+    $prodi          = strip_tags($post['prodi']);
+    $jenis_kelamin  = strip_tags($post['jk']);
+    $telepon        = strip_tags($post['telepon']);
+    $email          = strip_tags($post['email']);
+    $fotoLama       = strip_tags($post['fotoLama']);
+
+    if ($_FILES['foto']['error'] == 4) {
+        $foto = $fotoLama;
+    } else {
+        $foto = upload_file();
+    }
+
+    //query ubah data mahasiswa
+    $query = "UPDATE mahasiswa SET nama = '$nama', prodi = '$prodi', jk = '$jenis_kelamin', telepon = '$telepon', email = '$email', foto = '$foto' WHERE id_mahasiswa = $id_mahasiswa";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
+
 ?>
