@@ -16,7 +16,7 @@ include './config/app.php';
 
   <body>
     <div>
-        <nav class="navbar bg-dark navbar-expand-lg " data-bs-theme = "dark">
+        <nav class="navbar bg-dark navbar-expand-lg text-light" data-bs-theme = "dark">
             <div class="container">
                 <a class="navbar-brand" href="#">CRUD PHP</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

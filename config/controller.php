@@ -171,5 +171,61 @@ function update_mahasiswa($post) {
     return mysqli_affected_rows($db);
 }
 
+// fungsi untuk menambah akun
+
+function create_akun ($post) {
+    global $db;
+
+    $nama     = strip_tags($post['nama']);
+    $username = strip_tags($post['username']);
+    $email    = strip_tags($post['email']);
+    $password = strip_tags($post['password']);
+    $level    = strip_tags($post['level']);
+
+    // enkripsi password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    
+    // query tambat data
+    $query = "INSERT INTO akun VALUES(null, '$nama', '$username','$email', '$password', '$level')";
+    
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
+// fungsi menghapus barang
+function delete_akun($id_akun) {
+    global $db;
+
+    // query hapus data barang
+    $query = "DELETE FROM akun WHERE id_akun = $id_akun";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
+// fungsi update akun
+
+function update_akun($post) {
+    global $db;
+
+    $id_akun  = strip_tags($post['id_akun']);
+    $nama     = strip_tags($post['nama']);
+    $username = strip_tags($post['username']);
+    $email    = strip_tags($post['email']);
+    $password = strip_tags($post['password']);
+    $level    = strip_tags($post['level']);
+
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+
+    $query = "UPDATE akun SET nama = '$nama', username = '$username', email = '$email', password =  '$password', level =  '$level'  WHERE id_akun = $id_akun";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
 
 ?>
