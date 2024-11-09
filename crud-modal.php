@@ -1,4 +1,12 @@
 <?php 
+    // membatasi halaman login
+    if(!isset($_SESSION['login'])) {
+        echo "<script>
+                document.location.href = 'login.php'
+            </script>";
+        exit;
+    }
+
     $title = "Daftar Akun";
     include './layout/header.php';
 

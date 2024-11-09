@@ -1,6 +1,14 @@
 <!-- header -->
 <?php
 
+// membatasi halaman login
+if(!isset($_SESSION['login'])) {
+    echo "<script>
+            document.location.href = 'login.php'
+        </script>";
+    exit;
+}
+
 $title = "Detail Mahasiswa";
 
 include './layout/header.php';
