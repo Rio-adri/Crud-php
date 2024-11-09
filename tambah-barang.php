@@ -36,7 +36,7 @@ if (isset($_POST['tambah'])) {
                 <input type="number" class="form-control" id="harga" name="harga" placeholder="Harga Barang..." required>
             </div>
             
-            <button type="submit " name="tambah" class="btn btn-primary " style="float : right;">Tambah</button>
+            <button type="submit " name="tambah" class="btn btn-primary " style="float : right;"><i class="fas fa-plus-circle"></i> Tambah</button>
          </form>
         
     </div>

@@ -16,7 +16,7 @@ $mahasiswa = select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa"
 
 <!-- main -->
 <div class="container mt-5">
-        <h1>Detail <?= $mahasiswa['nama'];?></h1>
+        <h1><i class="fas fa-user"></i> Detail <?= $mahasiswa['nama'];?></h1>
         <hr>
 
         <table class="table table-bordered table-striped mt-3">

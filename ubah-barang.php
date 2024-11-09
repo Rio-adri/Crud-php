@@ -24,7 +24,7 @@ if (isset($_POST['ubah'])) {
 
 ?>
     <div class="container mt-5">
-        <h1>Ubah Barang</h1>
+        <h1><i class="fas fa-edit"></i> Ubah Barang</h1>
         <hr> 
         <!-- form -->
          <form action="" method="post">
@@ -42,7 +42,7 @@ if (isset($_POST['ubah'])) {
                 <input type="number" class="form-control" id="harga" name="harga" placeholder="Harga Barang..." value="<?=$barang['harga']?>" required>
             </div>
             
-            <button type="submit " name="ubah" class="btn btn-primary " style="float : right;">Ubah</button>
+            <button type="submit " name="ubah" class="btn btn-primary " style="float : right;"><i class="fas fa-edit"></i> Ubah</button>
          </form>
         
     </div>

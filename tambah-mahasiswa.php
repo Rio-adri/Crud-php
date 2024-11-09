@@ -63,7 +63,7 @@ if (isset($_POST['tambah'])) {
                 <img src="" alt="" class="img-thumbnail img-preview mt-2" width="100px">
             </div>
             
-            <button type="submit " name="tambah" class="btn btn-primary " style="float : right;">Tambah</button>
+            <button type="submit " name="tambah" class="btn btn-primary " style="float : right;"><i class="fas fa-plus-circle"></i> Tambah</button>
          </form>
         
     </div>

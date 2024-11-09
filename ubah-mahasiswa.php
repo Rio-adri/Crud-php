@@ -24,7 +24,7 @@ $mahasiswa =  select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa
 
 ?>
     <div class="container mt-5">
-        <h1>Ubah Data Mahasiswa</h1>
+        <h1><i class="fas fa-edit"></i> Ubah Data Mahasiswa</h1>
         <hr> 
         <!-- form -->
          <form action="" method="post" enctype="multipart/form-data">
@@ -71,7 +71,7 @@ $mahasiswa =  select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa
                 <img src="./assets/img/ <?php $mahasiswa['foto'];?>" alt="" class="img-thumbnail img-preview mt-2" width="100px">
             </div>
             
-            <button type="submit " name="tambah" class="btn btn-primary " style="float : right;">Ubah</button>
+            <button type="submit " name="tambah" class="btn btn-primary " style="float : right;"><i class="fas fa-edit"></i> Ubah</button>
          </form>
         
     </div>

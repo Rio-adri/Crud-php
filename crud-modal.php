@@ -2,7 +2,7 @@
     $title = "Daftar Akun";
     include './layout/header.php';
 
-    $data_akun = select("SELECT * FROM akun");
+    $data_akun = select("SELECT * FROM akun ");
 
     // jika tombol tambah ditekan, jalankan script berikut
     if (isset($_POST['tambah'])) {
@@ -35,10 +35,10 @@
     }
 ?>
     <div class="container mt-5">
-        <h1>Data Akun</h1>
+        <h1><i class="fas fa-list"></i> Data Akun</h1>
         <hr>
 
-        <button type="button" class="btn btn-primary mb-1" data-bs-toggle="modal" data-bs-target="#modalTambah">Tambah</button>
+        <button type="button" class="btn btn-primary mb-1" data-bs-toggle="modal" data-bs-target="#modalTambah"><i class="fas fa-plus-circle"></i> Tambah</button>
 
         <table class="table table-bordered table-striped mt-3" id="table">
             <thead>
@@ -61,8 +61,8 @@
                     <td><?= $akun['email']; ?></td>
                     <td>Password Ter-enkripsi</td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-primary mb-1" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $akun['id_akun']; ?>">Ubah</button>
-                        <button type="button" class="btn btn-danger mb-1" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $akun['id_akun']; ?>">Hapus</button>
+                        <button type="button" class="btn btn-primary mb-1" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $akun['id_akun']; ?>"><i class="fas fa-edit"></i> Ubah</button>
+                        <button type="button" class="btn btn-danger mb-1" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $akun['id_akun']; ?>"><i class="fas fa-trash-alt"></i> Hapus</button>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -106,7 +106,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-                            <button type="submit" name="tambah" class="btn btn-primary">Tambah</button>
+                            <button type="submit" name="tambah" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</button>
                         </div>
                     </form>
                 </div>
@@ -128,7 +128,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <a href="hapus-akun.php?id_akun=<?= $akun['id_akun']; ?>" class="btn btn-danger">Hapus</a>
+                        <a href="hapus-akun.php?id_akun=<?= $akun['id_akun']; ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
                     </div>
                 </div>
             </div>
@@ -175,7 +175,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-                            <button type="submit" name="ubah" class="btn btn-primary">Ubah</button>
+                            <button type="submit" name="ubah" class="btn btn-primary"><i class="fas fa-edit"></i> Ubah</button>
                         </div>
                     </form>
                 </div>
