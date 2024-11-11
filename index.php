@@ -1,5 +1,5 @@
 <?php 
-
+    session_start();
     // membatasi halaman login
     if(!isset($_SESSION['login'])) {
         echo "<script>

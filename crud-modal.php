@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     // membatasi halaman login
     if(!isset($_SESSION['login'])) {
         echo "<script>
@@ -10,7 +11,7 @@
     $title = "Daftar Akun";
     include './layout/header.php';
 
-    $data_akun = select("SELECT * FROM akun ");
+    $data_akun = select("SELECT * FROM akun ORDER BY id_akun DESC");
 
     // jika tombol tambah ditekan, jalankan script berikut
     if (isset($_POST['tambah'])) {

@@ -20,21 +20,23 @@ include './config/app.php';
             <div class="container">
                 <a class="navbar-brand" href="#">CRUD PHP</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                  <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                    <a class="nav-link" href="index.php">Barang</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="mahasiswa.php">Mahasiswa</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="crud-modal.php">Modal</a>
-                    </li>
-                </ul>
+                  <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.php">Barang</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="mahasiswa.php">Mahasiswa</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="crud-modal.php">Modal</a>
+                      </li>
+                  </ul>
                 </div>
+                <a class="navbar-brand" href="#"><?= $_SESSION['nama'] ;?></a>
+                <a class="btn btn-primary" href="logout.php">Keluar</a>
             </div>
         </nav>
     </div>

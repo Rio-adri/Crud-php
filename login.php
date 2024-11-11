@@ -1,3 +1,40 @@
+<?php 
+session_start();
+include './config/app.php';
+
+if(isset($_POST['login'])) {
+  // ambil input username dan password
+  $username = mysqli_real_escape_string($db, $_POST['username']);
+  $password = mysqli_real_escape_string($db, $_POST['password']);
+
+  // check username
+  $result = mysqli_query($db, "SELECT * FROM akun WHERE username = '$username'");
+
+  // jika username ada, check pass
+  if (mysqli_num_rows($result) == 1) {
+    // check password
+    $hasil = mysqli_fetch_assoc($result);
+    if (password_verify($password, $hasil['password'] )) {
+      // set session
+      $_SESSION['login']    = true;
+      $_SESSION['id_akun']  = $hasil['id_akun'];
+      $_SESSION['nama']     = $hasil['nama'];
+      $_SESSION['username'] = $hasil['username'];
+      $_SESSION['email']    = $hasil['email'];
+      $_SESSION['level']    = $hasil['level'];
+
+      // jika lodin benar, arahkan ke file index.php
+      header("Location: index.php");
+      exit;
+    } 
+    // jika tidak ada usernya atau login salah
+  } else {
+      $error = true;
+  }
+}
+
+?>
+
 
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -129,16 +166,22 @@
     <img class="mb-4" src="./assets/img/bootstrap-logo.svg" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Admin Login</h1>
 
+    <?php if (isset($error)): ?>
+      <div class="alert alert-danger text-center">
+        <b> Username atau password salah</b>
+      </div>
+    <?php endif; ?>
+    
     <div class="form-floating w-100">
-      <input type="email" class="form-control" id="floatingInput" placeholder="username..." required>
+      <input type="text" class="form-control" id="floatingInput" placeholder="username..." name="username" required>
       <label for="floatingInput" >Username</label>
     </div>
     <div class="form-floating w-100">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
-      <label for="floatingPassword">Password</label>
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"  required>
+      <label for="floatingPassword"> Password</label>
     </div>
 
-    <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
+    <button class="btn btn-primary w-100 py-2" type="submit" name="login">Login</button>
     <p class="mt-5 mb-3 text-body-secondary">Copyright &copy; Rio Adrian <?= date('Y') ?></p>
   </form>
 </main>
