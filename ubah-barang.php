@@ -21,12 +21,12 @@ if (isset($_POST['ubah'])) {
     if (update_barang($_POST) > 0) {
         echo "<script> 
                 alert('Data barang berhasil diubah');
-                document.location.href = 'barang.php';
+                document.location.href = 'index.php';
              </script>";
     } else {
         echo "<script> 
                 alert('Data barang gagal diubah');
-                document.location.href = 'barang.php';
+                document.location.href = 'index.php';
             </script>";
     }
 }

@@ -15,13 +15,13 @@ include './layout/header.php';
 if (isset($_POST['tambah'])) {
     if (create_barang($_POST) > 0) {
         echo "<script> 
-                alert('Data barang berhaisl ditambahkan');
-                document.location.href = 'barang.php';
+                alert('Data barang berhasil ditambahkan');
+                document.location.href = 'index.php';
              </script>";
     } else {
         echo "<script> 
                 alert('Data barang gagal ditambahkan');
-                document.location.href = 'barang.php';
+                document.location.href = 'index.php';
             </script>";
     }
 }

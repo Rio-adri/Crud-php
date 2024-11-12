@@ -26,9 +26,9 @@ if(isset($_POST['login'])) {
 
       // jika login benar, arahkan ke file crud-modal.php
       if ($_SESSION['level'] == 1 ) {
-        header("Location: crud-modal.php");
+        header("Location: index.php");
       } else if($_SESSION['level'] == 2 ) {
-        header("Location: barang.php");
+        header("Location: index.php");
       } else if($_SESSION['level'] == 3) {
         header("Location: mahasiswa.php");
       } else {
@@ -54,7 +54,7 @@ if(isset($_POST['login'])) {
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Admin Login</title>
+    <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
@@ -173,7 +173,7 @@ if(isset($_POST['login'])) {
 <main class="form-signin w-100 m-auto">
   <form action="" method="post" class="d-flex flex-column align-items-center">
     <img class="mb-4" src="./assets/img/bootstrap-logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Admin Login</h1>
+    <h1 class="h3 mb-3 fw-normal">Login</h1>
 
     <?php if (isset($error)): ?>
       <div class="alert alert-danger text-center">

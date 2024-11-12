@@ -26,7 +26,7 @@ include './config/app.php';
                   <ul class="navbar-nav">
                     <?php if ($_SESSION['level'] == 1 || $_SESSION['level']==2) : ?>
                       <li class="nav-item">
-                        <a class="nav-link" href="barang.php">Barang</a>
+                        <a class="nav-link" href="index.php">Barang</a>
                       </li>
                     <?php endif; ?>
                     
