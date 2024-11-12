@@ -9,7 +9,8 @@ if(isset($_POST['login'])) {
 
   // check username
   $result = mysqli_query($db, "SELECT * FROM akun WHERE username = '$username'");
-
+  // untuk error
+  $error = false;
   // jika username ada, check pass
   if (mysqli_num_rows($result) == 1) {
     // check password
@@ -23,8 +24,16 @@ if(isset($_POST['login'])) {
       $_SESSION['email']    = $hasil['email'];
       $_SESSION['level']    = $hasil['level'];
 
-      // jika lodin benar, arahkan ke file index.php
-      header("Location: index.php");
+      // jika login benar, arahkan ke file crud-modal.php
+      if ($_SESSION['level'] == 1 ) {
+        header("Location: crud-modal.php");
+      } else if($_SESSION['level'] == 2 ) {
+        header("Location: barang.php");
+      } else if($_SESSION['level'] == 3) {
+        header("Location: mahasiswa.php");
+      } else {
+        $error = true;
+      }
       exit;
     } 
     // jika tidak ada usernya atau login salah

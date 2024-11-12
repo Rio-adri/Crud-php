@@ -16,12 +16,12 @@ if (isset($_POST['tambah'])) {
     if (create_barang($_POST) > 0) {
         echo "<script> 
                 alert('Data barang berhaisl ditambahkan');
-                document.location.href = 'index.php';
+                document.location.href = 'barang.php';
              </script>";
     } else {
         echo "<script> 
                 alert('Data barang gagal ditambahkan');
-                document.location.href = 'index.php';
+                document.location.href = 'barang.php';
             </script>";
     }
 }

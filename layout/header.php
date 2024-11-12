@@ -24,14 +24,20 @@ include './config/app.php';
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav">
+                    <?php if ($_SESSION['level'] == 1 || $_SESSION['level']==2) : ?>
                       <li class="nav-item">
-                        <a class="nav-link" href="index.php">Barang</a>
+                        <a class="nav-link" href="barang.php">Barang</a>
                       </li>
+                    <?php endif; ?>
+                    
+                    <?php if ($_SESSION['level'] == 1 || $_SESSION['level']==3) : ?>
                       <li class="nav-item">
                         <a class="nav-link" href="mahasiswa.php">Mahasiswa</a>
                       </li>
+                    <?php endif; ?>
+                    
                       <li class="nav-item">
-                        <a class="nav-link" href="crud-modal.php">Modal</a>
+                        <a class="nav-link" href="crud-modal.php">Akun</a>
                       </li>
                   </ul>
                 </div>

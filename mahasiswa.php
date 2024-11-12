@@ -9,6 +9,16 @@ if(!isset($_SESSION['login'])) {
     exit;
 }
 
+ // membatasi halaman sesuai login
+ if($_SESSION['level'] != 1 && $_SESSION['level'] != 3) {
+    echo "<script>
+            alert('anda tidak punya hak akses');
+            document.location.href = 'crud-modal.php'
+        </script>";
+    exit;
+}
+
+
 $title = "Daftar Mahasiswa";
 
 include './layout/header.php';

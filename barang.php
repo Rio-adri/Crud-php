@@ -1,12 +1,22 @@
 <?php 
     session_start();
-    // membatasi halaman login
+    // membatasi halaman sebelum login
     if(!isset($_SESSION['login'])) {
         echo "<script>
                 document.location.href = 'login.php'
             </script>";
         exit;
     }
+
+    // membatasi halaman sesuai login
+    if($_SESSION['level'] != 1 && $_SESSION['level'] != 2) {
+        echo "<script>
+                alert('anda tidak punya hak akses');
+                document.location.href = 'crud-modal.php'
+            </script>";
+        exit;
+    }
+
 
 
     $title = "Daftar Barang";
