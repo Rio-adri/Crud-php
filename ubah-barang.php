@@ -50,6 +50,8 @@ if (isset($_POST['ubah'])) {
                 <label for="harga" class="form-label">Harga Barang</label>
                 <input type="number" class="form-control" id="harga" name="harga" placeholder="Harga Barang..." value="<?=$barang['harga']?>" required>
             </div>
+            <input type="hidden" name="barcode" value = "<?=$barang['barcode'];?>">
+
             
             <button type="submit " name="ubah" class="btn btn-primary " style="float : right;"><i class="fas fa-edit"></i> Ubah</button>
          </form>

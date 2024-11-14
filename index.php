@@ -37,6 +37,7 @@
                     <th class="text-center">Nama</th>
                     <th class="text-center">Jumlah</th>
                     <th class="text-center">Harga</th>
+                    <th class="text-center">Barcode</th>
                     <th class="text-center">Tanggal</th>
                     <th class="text-center">Aksi</th>
                 </tr>
@@ -49,6 +50,9 @@
                     <td> <?= $barang['nama']; ?></td>
                     <td> <?= $barang['jumlah']; ?></td>
                     <td>Rp<?= number_format($barang['harga'],0,',','.'); ?></td>
+                    <td class="text-center">
+                        <img alt="barcode" src="barcode.php?codetype=Code128&size15&text=<?= $barang['barcode'];?>&print=true">
+                    </td>
                     <td> <?= date('d/m/Y | H:i:s', strtotime($barang['tanggal'])); ?></td>
                     <td width="20%" class="text-center">
                         <a href="ubah-barang.php?id_barang=<?= $barang['id_barang'];?>" class="btn btn-warning"><i class="fas fa-edit"></i> Ubah</a>
