@@ -61,10 +61,17 @@ if (isset($_POST['tambah'])) {
                 <label for="telepon" class="form-label">Telepon Mahasiswa</label>
                 <input type="number" class="form-control" id="telepon" name="telepon" placeholder="Telepon..." required>
             </div>
+
+            <div class="mb-3">
+                <label for="alamat" class="form-label">Alamat Mahasiswa</label>
+                <textarea name="alamat" id="alamat"></textarea>
+            </div>
+
             <div class="mb-3">
                 <label for="email" class="form-label">Email Mahasiswa</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Email..." required>
             </div>
+
             <div class="mb-3">
                 <label for="foto" class="form-label">Foto Mahasiswa</label>
                 <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto Mahasiswa..." onchange = "previewImg()" required>

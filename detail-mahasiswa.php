@@ -49,6 +49,12 @@ $mahasiswa = select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa"
             </tr>
 
             <tr>
+                <td>Alamat</td>
+                <td> : <?= $mahasiswa['alamat']?></td>
+            </tr>
+
+
+            <tr>
                 <td>Email</td>
                 <td> : <?= $mahasiswa['email']?></td>
             </tr>
