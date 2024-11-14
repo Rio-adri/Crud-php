@@ -64,11 +64,29 @@ function delete_barang($id_barang) {
 function create_mahasiswa ($post) {
     global $db;
 
-    $nama           = strip_tags($post['nama']);
+    if (preg_match("/^[a-zA-Z-'. ]*$/", $post['nama'])) {
+        $nama = strip_tags($post['nama']);
+    } else {
+        echo "<script>
+            alert('Penulisan nama harus benar');
+            document.location.href = 'tambah-mahasiswa.php';
+            </script>";
+        exit;
+    }
+
     $prodi          = strip_tags($post['prodi']);
     $jenis_kelamin  = strip_tags($post['jk']);
     $telepon        = strip_tags($post['telepon']);
-    $email          = strip_tags($post['email']);
+    
+    if (filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
+        $email = strip_tags($post['email']);
+    } else {
+        echo "<script>
+            alert('Penulisan email harus benar');
+            document.location.href = 'tambah-mahasiswa.php';
+            </script>";
+        exit;
+    }
     $foto           = upload_file();
     // check upload file
     if(!$foto) {
@@ -150,11 +168,30 @@ function update_mahasiswa($post) {
     global $db;
 
     $id_mahasiswa   = strip_tags($post['id_mahasiswa']);
-    $nama           = strip_tags($post['nama']);
+
+    if (preg_match("/^[a-zA-Z-'. ]*$/", $post['nama'])) {
+        $nama = strip_tags($post['nama']);
+    } else {
+        echo "<script>
+            alert('Penulisan nama harus benar');
+            document.location.href = 'mahasiswa.php';
+            </script>";
+        exit;
+    }
     $prodi          = strip_tags($post['prodi']);
     $jenis_kelamin  = strip_tags($post['jk']);
     $telepon        = strip_tags($post['telepon']);
-    $email          = strip_tags($post['email']);
+
+    if (filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
+        $email = strip_tags($post['email']);
+    } else {
+        echo "<script>
+            alert('Penulisan email harus benar');
+            document.location.href = 'mahasiswa.php';
+            </script>";
+        exit;
+    }
+
     $fotoLama       = strip_tags($post['fotoLama']);
 
     if ($_FILES['foto']['error'] == 4) {
