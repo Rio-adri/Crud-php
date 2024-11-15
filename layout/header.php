@@ -28,23 +28,23 @@ include './config/app.php';
                   <ul class="navbar-nav">
                     <?php if ($_SESSION['level'] == 1 || $_SESSION['level']==2) : ?>
                       <li class="nav-item">
-                        <a class="nav-link" href="index.php">Barang</a>
+                        <a class="nav-link" href="index">Barang</a>
                       </li>
                     <?php endif; ?>
                     
                     <?php if ($_SESSION['level'] == 1 || $_SESSION['level']==3) : ?>
                       <li class="nav-item">
-                        <a class="nav-link" href="mahasiswa.php">Mahasiswa</a>
+                        <a class="nav-link" href="mahasiswa">Mahasiswa</a>
                       </li>
                     <?php endif; ?>
                     
                       <li class="nav-item">
-                        <a class="nav-link" href="crud-modal.php">Akun</a>
+                        <a class="nav-link" href="crud-modal">Akun</a>
                       </li>
                   </ul>
                 </div>
                 <a class="navbar-brand" href="#"><?= $_SESSION['nama'] ;?></a>
-                <a class="btn btn-primary" href="logout.php">Keluar</a>
+                <a class="btn btn-primary" href="logout">Keluar</a>
             </div>
         </nav>
     </div>

@@ -3,7 +3,7 @@ session_start();
 // membatasi halaman login
 if(!isset($_SESSION['login'])) {
     echo "<script>
-            document.location.href = 'login.php'
+            document.location.href = 'login'
         </script>";
     exit;
 }
@@ -21,12 +21,12 @@ if (isset($_POST['ubah'])) {
     if (update_barang($_POST) > 0) {
         echo "<script> 
                 alert('Data barang berhasil diubah');
-                document.location.href = 'index.php';
+                document.location.href = 'index';
              </script>";
     } else {
         echo "<script> 
                 alert('Data barang gagal diubah');
-                document.location.href = 'index.php';
+                document.location.href = 'index';
             </script>";
     }
 }

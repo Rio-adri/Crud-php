@@ -5,7 +5,7 @@ session_start();
 // membatasi halaman login
 if(!isset($_SESSION['login'])) {
     echo "<script>
-            document.location.href = 'login.php'
+            document.location.href = 'login'
         </script>";
     exit;
 }
@@ -14,7 +14,7 @@ if(!isset($_SESSION['login'])) {
  if($_SESSION['level'] != 1 && $_SESSION['level'] != 3) {
     echo "<script>
             alert('anda tidak punya hak akses');
-            document.location.href = 'crud-modal.php'
+            document.location.href = 'crud-modal'
         </script>";
     exit;
 }

@@ -3,7 +3,7 @@ session_start();
 // membatasi halaman login
 if(!isset($_SESSION['login'])) {
     echo "<script>
-            document.location.href = 'login.php'
+            document.location.href = 'login'
         </script>";
     exit;
 }
@@ -16,12 +16,12 @@ if (isset($_POST['tambah'])) {
     if (update_mahasiswa($_POST) > 0) {
         echo "<script> 
                 alert('Data Mahasiswa berhasil diubah');
-                document.location.href = 'mahasiswa.php';
+                document.location.href = 'mahasiswa';
              </script>";
     } else {
         echo "<script> 
                 alert('Data Mahasiswa gagal diubah');
-                document.location.href = 'mahasiswa.php';
+                document.location.href = 'mahasiswa';
             </script>";
     }
 }

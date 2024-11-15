@@ -35,7 +35,7 @@ $data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC")
         <h1><i class="fas fa-users"></i> Data Mahasiswa</h1>
         <hr>
 
-        <a href="tambah-mahasiswa.php" class="btn btn-primary mb-1"><i class="fas fa-plus-circle"></i> Tambah</a>
+        <a href="tambah-mahasiswa" class="btn btn-primary mb-1"><i class="fas fa-plus-circle"></i> Tambah</a>
 
         <a href="download-excel-mahasiswa.php" class="btn btn-success mb-1"><i class="fas fa-file-excel"></i> Download Excel</a>
 
@@ -62,9 +62,9 @@ $data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC")
                     <td class="text-center"> <?= $mahasiswa['jk']; ?></td>
                     <td class="text-center"> <?= $mahasiswa['telepon']; ?></td>
                     <td width="25%" class="text-center">
-                        <a href="detail-mahasiswa.php?id_mahasiswa=<?= $mahasiswa['id_mahasiswa'];?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i> Detail</a>
-                        <a href="ubah-mahasiswa.php?id_mahasiswa=<?= $mahasiswa['id_mahasiswa']; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Ubah</a>
-                        <a href="hapus-mahasiswa.php?id_mahasiswa=<?= $mahasiswa['id_mahasiswa'];?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')"><i class="fas fa-trash-alt"></i> Hapus</a>
+                        <a href="detail-mahasiswa?id_mahasiswa=<?= $mahasiswa['id_mahasiswa'];?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i> Detail</a>
+                        <a href="ubah-mahasiswa?id_mahasiswa=<?= $mahasiswa['id_mahasiswa']; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Ubah</a>
+                        <a href="hapus-mahasiswa?id_mahasiswa=<?= $mahasiswa['id_mahasiswa'];?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')"><i class="fas fa-trash-alt"></i> Hapus</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
