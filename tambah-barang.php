@@ -27,11 +27,31 @@ if (isset($_POST['tambah'])) {
 }
 
 ?>
-    <div class="container mt-5">
-        <h1>Tambah Barang</h1>
-        <hr> 
-        <!-- form -->
-         <form action="" method="post">
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0"><i class="fas fa-plus-circle"></i> Tambah Barang</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="index.php">Data Barang</a></li>
+              <li class="breadcrumb-item active">Tambah Barang</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <form action="" method="post">
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama Barang</label>
                 <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Barang..." required>
@@ -47,8 +67,12 @@ if (isset($_POST['tambah'])) {
             
             <button type="submit " name="tambah" class="btn btn-primary " style="float : right;"><i class="fas fa-plus-circle"></i> Tambah</button>
          </form>
-        
-    </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
 
 <?php include './layout/footer.php' ?>
     

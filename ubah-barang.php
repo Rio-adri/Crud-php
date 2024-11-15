@@ -32,11 +32,31 @@ if (isset($_POST['ubah'])) {
 }
 
 ?>
-    <div class="container mt-5">
-        <h1><i class="fas fa-edit"></i> Ubah Barang</h1>
-        <hr> 
-        <!-- form -->
-         <form action="" method="post">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0"><i class="fas fa-edit"></i> Ubah Barang</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="index.php">Data Barang</a></li>
+              <li class="breadcrumb-item active">Ubah Barang</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <form action="" method="post">
             <input type="hidden" name="id_barang" value = "<?=$barang['id_barang'];?>">
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama Barang</label>
@@ -55,8 +75,10 @@ if (isset($_POST['ubah'])) {
             
             <button type="submit " name="ubah" class="btn btn-primary " style="float : right;"><i class="fas fa-edit"></i> Ubah</button>
          </form>
-        
-    </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
 
-<?php include './layout/footer.php' ?>
-    
+  <?php include './layout/footer.php';?>
