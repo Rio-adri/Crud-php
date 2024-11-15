@@ -106,7 +106,6 @@ function create_mahasiswa ($post) {
 
 // fungsi untuk mengupload file
 function upload_file() {
-    $namaFile = $_FILES['foto']['name'];
     $ukuranFile = $_FILES['foto']['size'];
     $error = $_FILES['foto']['error'];
     $tmpName = $_FILES['foto']['tmp_name'];
@@ -114,9 +113,8 @@ function upload_file() {
     // check file yang diupload
     $extensifileValid = ['jpg','jpeg','png'];
 
-    $extensiFile = explode('.',$namaFile);
-    $extensiFile = strtolower(end($extensiFile));
-
+    $extensiFile = strtolower(pathinfo($_FILES['foto']['full_path'],PATHINFO_EXTENSION));
+    
     // check format ekstensi file
     if(!in_array($extensiFile,$extensifileValid)) {
         // pesan gagal
