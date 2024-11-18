@@ -12,6 +12,7 @@ include './config/app.php';
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= $title ;?></title>
 
+
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -30,7 +31,13 @@ include './config/app.php';
   <link rel="stylesheet" href="assets-template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="assets-template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="assets-template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- load ckeditor 5 css -->
+  <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.css">
+
+  <!-- jQuery -->
+  <script src="assets-template/plugins/jquery/jquery.min.js"></script>
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -101,6 +108,15 @@ include './config/app.php';
               <i class="nav-icon fas fa-user-cog"></i>
               <p>
                 Data Akun
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="pegawai.php" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Data Pegawai <small>(Realtime)</small>
               </p>
             </a>
           </li>

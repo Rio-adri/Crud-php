@@ -14,14 +14,15 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="assets-template/plugins/jquery/jquery.min.js"></script>
+
 <!-- jQuery UI 1.11.4 -->
-<script src="assets-template/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
+
+<script src="assets-template/plugins/jquery-ui/jquery-ui.min.js"></script>
+
 <!-- Bootstrap 4 -->
 <script src="assets-template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
@@ -54,6 +55,49 @@
 <script src="assets-template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script src="assets-template/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
 <script src="assets-template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+
+<!-- load font awesome -->
+<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+
+<!-- Load CKEditor 5 CDN -->
+<script type="importmap">
+            {
+                "imports": {
+                    "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.js",
+                    "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.3.1/"
+                }
+            }
+        </script>
+        <script type="module">
+            import {
+                ClassicEditor,
+                Essentials,
+                Paragraph,
+                Bold,
+                Italic,
+                Font
+            } from 'ckeditor5';
+
+            ClassicEditor
+                .create( document.querySelector( '#alamat' ), {
+                    plugins: [ Essentials, Paragraph, Bold, Italic, Font ],
+                    toolbar: [
+						'undo', 'redo', '|', 'bold', 'italic', '|',
+						'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                    ]
+                } )
+                .then( editor => {
+                    window.editor = editor;
+                } )
+                .catch( error => {
+                    console.error( error );
+                } );
+        </script>
+
+
+<script>
+  new DataTable('#table');
+</script>
 
 <!-- Page specific script -->
 <script>

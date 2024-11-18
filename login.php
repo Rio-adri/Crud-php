@@ -182,7 +182,7 @@ if(isset($_POST['login'])) {
     <?php endif; ?>
     
     <div class="form-floating w-100">
-      <input type="text" class="form-control" id="floatingInput" placeholder="username..." name="username" required>
+      <input type="text" class="form-control" id="floatingInput" placeholder="username... " name="username" required>
       <label for="floatingInput" >Username</label>
     </div>
     <div class="form-floating w-100">

@@ -18,14 +18,10 @@ if(!isset($_SESSION['login'])) {
 }
 
 
-$title = "Daftar Mahasiswa";
+$title = "Daftar Pegawai";
 
 include './layout/header.php';
 
-
-
-// menampilkan data mahasiswa
-$data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC")
 
 ?>
 
@@ -36,12 +32,12 @@ $data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC")
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Data Mahasiswa</h1>
+            <h1 class="m-0">Data Pegawai</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Mahasiswa</li>
+              <li class="breadcrumb-item"><a href="crud-modal.php">Home</a></li>
+              <li class="breadcrumb-item active">Data Pegawai</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -66,39 +62,20 @@ $data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC")
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                    <a href="tambah-mahasiswa" class="btn btn-primary mb-1"><i class="fas fa-plus-circle"></i> Tambah</a>
-
-                        <a href="download-excel-mahasiswa.php" class="btn btn-success mb-1"><i class="fas fa-file-excel"></i> Download Excel</a>
-
-                        <a href="download-pdf-mahasiswa.php" class="btn btn-danger mb-1"><i class="fas fa-file-pdf"></i> Download PDF</a>
-
                         <table class="table table-bordered table-striped mt-3" id="table">
                             <thead>
                                 <tr>
                                     <th class="text-center">No</th>
                                     <th class="text-center">Nama</th>
-                                    <th class="text-center">Prodi</th>
-                                    <th class="text-center">jenis Kelamin</th>
+                                    <th class="text-center">Jabatan</th>
+                                    <th class="text-center">Email</th>
                                     <th class="text-center">Telepon</th>
+                                    <th class="text-center">Alamat</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php $no = 1;?>
-                                <?php foreach ($data_mahasiswa as $mahasiswa): ?>
-                                <tr class="">
-                                    <td class="text-center"> <?= $no++ ;?></td>
-                                    <td class="text-center"> <?= $mahasiswa['nama']; ?></td>
-                                    <td class="text-center"> <?= $mahasiswa['prodi']; ?></td>
-                                    <td class="text-center"> <?= $mahasiswa['jk']; ?></td>
-                                    <td class="text-center"> <?= $mahasiswa['telepon']; ?></td>
-                                    <td width="25%" class="text-center">
-                                        <a href="detail-mahasiswa?id_mahasiswa=<?= $mahasiswa['id_mahasiswa'];?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i> Detail</a>
-                                        <a href="ubah-mahasiswa?id_mahasiswa=<?= $mahasiswa['id_mahasiswa']; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Ubah</a>
-                                        <a href="hapus-mahasiswa?id_mahasiswa=<?= $mahasiswa['id_mahasiswa'];?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')"><i class="fas fa-trash-alt"></i> Hapus</a>
-                                    </td>
-                                </tr>
-                                <?php endforeach; ?>
+                            <tbody id="live_data">
+                               
                             </tbody>
                         </table>
                     </div>
@@ -112,5 +89,23 @@ $data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC")
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+<script>
+    $('document').ready(function() {
+        setInterval(()=>{
+            getPegawai();
+        },2000);
+    });
+
+    function getPegawai() {
+        $.ajax({
+            url : "realtime-pegawai.php",
+            type : "GET",
+            success : function (response) {
+                $('#live_data').html(response)
+            }
+        })
+    }
+</script>
 
   <?php include './layout/footer.php';?>
