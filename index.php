@@ -124,6 +124,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                       <a href="tambah-barang.php" class="btn btn-primary mb-4 btn-sm"><i class="fas fa-plus-circle"></i> Tambah barang</a>
+                      <button type="button" class="btn btn-success btn-sm mb-4" data-toggle ="modal" data-target ="#modalFilter"> <i class="fas fa-search"></i> Filter Data</button>
                       <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
