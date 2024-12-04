@@ -30,7 +30,14 @@
       $data_barang = select("SELECT * FROM barang WHERE tanggal BETWEEN '$tgl_awal' AND '$tgl_akhir' ORDER BY id_barang DESC");
 
     } else {
-      $data_barang = select("SELECT * FROM barang ORDER BY id_barang DESC"); 
+      // query tampil data dengan pagination
+      $jumlahDataPerhalaman = 3;
+      $jumlahData           = count(select("SELECT * FROM barang"));
+      $jumlahHalaman        = ceil($jumlahData/$jumlahDataPerhalaman);
+      $halamanAktif         = (isset($_GET['halaman']) ? $_GET['halaman'] : 1);
+      $awalData             = ($jumlahDataPerhalaman * $halamanAktif) - $jumlahDataPerhalaman;
+
+      $data_barang = select("SELECT * FROM barang ORDER BY id_barang DESC LIMIT $awalData,$jumlahDataPerhalaman"); 
     }
     
     
@@ -136,7 +143,7 @@
                     <div class="card-body">
                       <a href="tambah-barang.php" class="btn btn-primary mb-4 btn-sm"><i class="fas fa-plus-circle"></i> Tambah barang</a>
                       <button type="button" class="btn btn-success btn-sm mb-4" data-toggle ="modal" data-target ="#modalFilter"> <i class="fas fa-search"></i> Filter Data</button>
-                      <table id="example2" class="table table-bordered table-hover">
+                      <table id="" class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th class="text-center">No</th>
@@ -151,10 +158,9 @@
                         <!-- tes 2 -->
 
                         <tbody>
-                            <?php $no = 1;?>
                             <?php foreach ($data_barang as $barang): ?>
                             <tr>
-                                <td> <?= $no++ ;?></td>
+                                <td> <?= ++$awalData ;?></td>
                                 <td> <?= $barang['nama']; ?></td>
                                 <td> <?= $barang['jumlah']; ?></td>
                                 <td>Rp<?= number_format($barang['harga'],0,',','.'); ?></td>
@@ -170,6 +176,37 @@
                             <?php endforeach; ?>
                         </tbody>
                       </table>
+                      <div class="mt-2 justify-content-end d-flex">
+                        <nav aria-label="Page navigation example">
+                          <ul class="pagination">
+                            <?php if ($halamanAktif > 1 ) : ?> 
+                              <li class="page-item">
+                                <a class="page-link" href="?halaman=<?= $halamanAktif - 1; ?>" aria-label="Previous">
+                                  <span aria-hidden="true">&laquo;</span>
+                                </a>
+                              </li>
+                            <?php endif; ?>
+
+                            <?php for ($i = 1; $i <= $jumlahHalaman; $i++ ) : ?>
+                              <?php if ($i == $halamanAktif) : ?>
+                                <li class="page-item active"><a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a></li>
+                              <?php else : ?>
+                                <li class="page-item"><a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a></li>
+                              <?php endif; ?>
+
+                            <?php endfor; ?>
+                            
+                            <?php if ($halamanAktif < $jumlahHalaman ) : ?> 
+                            <li class="page-item">
+                              <a class="page-link" href="?halaman=<?= $halamanAktif + 1; ?>" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                              </a>
+                            </li>
+                            <?php endif; ?>
+
+                          </ul>
+                        </nav>
+                      </div>
                     </div>
                   </div>
                 </div>
