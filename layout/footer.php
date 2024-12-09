@@ -104,11 +104,33 @@
   new DataTable('#table');
 </script>
 
-<!-- Page specific script -->
+<!-- data table client side -->
 <script>
   $(function () {
     $('#example2').DataTable();
   });
 </script>
+
+<!-- data table server side -->
+<script>
+  new DataTable('#serverside', {
+    ajax: {
+      "url" : 'mahasiswa-serverside.php?action=table_data',
+      "dataType" : "json",
+      "type" : "POST",
+    },
+    columns: [
+      {"data" : "no"},
+      {"data" : "nama"},
+      {"data" : "prodi"},
+      {"data" : "jk"},
+      {"data" : "telepon"},
+      {"data" : "aksi"},
+    ],
+    processing: true,
+    serverSide: true
+  });
+</script>
+
 </body>
 </html>

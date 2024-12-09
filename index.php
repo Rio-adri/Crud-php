@@ -176,6 +176,7 @@
                             <?php endforeach; ?>
                         </tbody>
                       </table>
+                      <!-- pagination -->
                       <div class="mt-2 justify-content-end d-flex">
                         <nav aria-label="Page navigation example">
                           <ul class="pagination">
