@@ -35,12 +35,12 @@ if (isset($_POST['tambah'])) {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0"><i class="fas fa-plus-circle"></i> Tambah Barang</h1>
+            <h1 class="m-0"><i class="fas fa-plus-circle"></i> Tambah Mahasiswa</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index.php">Data Barang</a></li>
-              <li class="breadcrumb-item active">Tambah Barang</li>
+              <li class="breadcrumb-item"><a href="index.php">Data Mahasiswa</a></li>
+              <li class="breadcrumb-item active">Tambah Mahasiswa</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -84,7 +84,7 @@ if (isset($_POST['tambah'])) {
 
                     <div class="mb-3">
                         <label for="alamat" class="form-label">Alamat Mahasiswa</label>
-                        <textarea name="alamat" id="alamat"></textarea>
+                        <textarea name="alamat" id="textarea"></textarea>
                     </div>
 
                     <div class="mb-3">

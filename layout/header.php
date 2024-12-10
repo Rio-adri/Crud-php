@@ -108,19 +108,28 @@ include './config/app.php';
           </li>
           
           <li class="nav-item">
-            <a href="crud-modal" class="nav-link">
-              <i class="nav-icon fas fa-user-cog"></i>
+            <a href="pegawai.php" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
               <p>
-                Data Akun
+                Data Pegawai <small>(Realtime)</small>
               </p>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="pegawai.php" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+            <a href="email.php" class="nav-link">
+              <i class="nav-icon fas fa-envelope"></i>
               <p>
-                Data Pegawai <small>(Realtime)</small>
+                Kirim Email 
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="crud-modal" class="nav-link">
+              <i class="nav-icon fas fa-user-cog"></i>
+              <p>
+                Data Akun
               </p>
             </a>
           </li>

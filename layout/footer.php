@@ -84,7 +84,7 @@
             } from 'ckeditor5';
 
             ClassicEditor
-                .create( document.querySelector( '#alamat' ), {
+                .create( document.querySelector( '#textarea' ), {
                     plugins: [ Essentials, Paragraph, Bold, Italic, Font ],
                     toolbar: [
 						'undo', 'redo', '|', 'bold', 'italic', '|',
